@@ -7,16 +7,9 @@ import burgerCloseIcon from "../assets/burgerClose.svg";
 import burgerOpenIcon from "../assets/burgerOpen.svg";
 
 const StyledSideBar = styled.div`
-// margin: ${open ? '0px;' : '8px;'}; 
-// position: fixed;
-// left: 0;
-// top: 0;
-// height: ${open ? '100%' : '98%'}; 
-// width: ${open ? '100vw' : '72px'}; 
-// border-radius:${open ? '0px;' : '12px;'}; 
-// background: linear-gradient(180deg, var(--color-blue) 0%, var(--color-light-blue) 100%);
-// display: flex;
-// flex-direction: row;
+height:100%;
+display: flex;
+flex-direction: column;
 `;
 
 const StyledColvirIcon = styled.img`
@@ -28,7 +21,6 @@ height: 32px;
 const StyledButtonPanel = styled.div`
 width: 72px;
 display: flex;
-background: green;
 flex-direction: column;
 align-items: center;
 justify-content: center;
