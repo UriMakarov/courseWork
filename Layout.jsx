@@ -34,7 +34,10 @@ const ButtonPanelContainer = styled.div`
   border-radius: ${(props) => (props.open ? "0px;" : "12px;")};
   background: inherit;
   width: 72px;
-  // border: solid 1px black;
+  display:flex;
+  flex-direction: column;
+  height:100%;
+
 `;
 
 const MenuContainer = styled.div`
@@ -42,7 +45,7 @@ const MenuContainer = styled.div`
   display:${(props) => (props.open ? "block;" : "none;")};
   width: 400px;
   height:100vh;
-  // border: solid 1px black;
+
 `;
 
 const FormContainer = styled.div`
