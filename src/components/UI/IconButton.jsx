@@ -39,11 +39,11 @@ const StyledIconButton = styled.img`
 margin:10px;
 `;
 
-export function IconButton({ img, open, onClick, num }) {
+export function IconButton({ img, open, onClick, num = 0, alt }) {
     return (
         <>
             <IconButtonContainer open={open} >
-                <StyledIconButton src={img} onClick={onClick} />
+                <StyledIconButton src={img} onClick={onClick} alt={alt}/>
                 {(num !== 0) && (
                 <StyledCircle>
                     <StyledNumber>{num}</StyledNumber>
@@ -59,7 +59,8 @@ IconButton.propTypes = {
     img: PropTypes.any,
     open: PropTypes.bool,
     onClick: PropTypes.func,
-    num: PropTypes.number
+    num: PropTypes.number,
+    alt: PropTypes.string,
 }
 
 

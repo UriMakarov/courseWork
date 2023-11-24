@@ -58,7 +58,7 @@ padding-left: 88px;
 `;
 
 export function Layout() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   function SidebarOpenHandler() {
     setSidebarOpen(!sidebarOpen);
