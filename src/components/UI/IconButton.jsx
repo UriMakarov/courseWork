@@ -42,7 +42,7 @@ margin:10px;
 export function IconButton({ img, open, onClick, num = 0, alt }) {
     return (
         <>
-            <IconButtonContainer open={open} >
+            <IconButtonContainer open={open} onClick={onClick}>
                 <StyledIconButton src={img} onClick={onClick} alt={alt}/>
                 {(num !== 0) && (
                 <StyledCircle>
