@@ -13,6 +13,7 @@
 
 
   --color-text: #041526;
+  --color-light-text: #FFF;
   --color-blue: #1173DA;
   --color-light-blue: #A4E2FF;
   --color-pink: #F05B82;
@@ -20,9 +21,9 @@
   --color-aqua: #71DEBE;
   --color-bg-white: #F6F8FA;
   --color-red: #FA506F;
-  --color-icon-bg:#8DC8E8;
+  --color-icon-bg: #8DC8E8;
 
-  
+
 }
 
 

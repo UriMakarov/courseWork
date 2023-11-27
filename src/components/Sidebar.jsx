@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { IconButton } from './UI/IconButton';
-import colvirIcon from "../assets/Colvir.svg";
+
+import colvirIcon from "../assets/colvir.svg";
 import burgerCloseIcon from "../assets/burgerClose.svg";
 import burgerOpenIcon from "../assets/burgerOpen.svg";
 import folderIcon from "../assets/folder.svg";
@@ -62,10 +63,10 @@ export const Sidebar = ({ open, handler }) => {
             <StyledSideBar open={open}>
                 <StyledColvirIcon src={colvirIcon} alt='Colvir' />
                 <StyledButtonPanel>
-                    <IconButton img={burgerIcon} open={open} onClick={handler} alt='qqq' />
+                    <IconButton img={burgerIcon} open={open} onClick={handler} alt='burgerIcon' />
                     <IconButton img={folderIcon} num={numFolder} alt='folderIcon' />
-                    <IconButton img={listIcon} num={numList} />
-                    <IconButton img={bellIcon} num={numBell} />
+                    <IconButton img={listIcon} num={numList} alt='listIcom' />
+                    <IconButton img={bellIcon} num={numBell} alt="bellIcon" />
                 </StyledButtonPanel>
                 <StyledUserContainer>
                     <StyledUserIcon src={userIcon} alt='User' />

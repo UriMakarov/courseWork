@@ -3,8 +3,8 @@ export const menuData = [
     {
         id: 1, type: "folder", name: "Кредиты",
         childrens: [
-            { id: 2, type: "link", name: "Простой кредит", href: "/" },
-            { id: 3, type: "link", name: "Автокредит", href: "/" }
+            { id: 2, type: "link", name: "Кредит", href: "/" },
+            { id: 3, type: "link", name: "Автокредит", href: "/home" }
         ]
     },
     {
@@ -15,8 +15,8 @@ export const menuData = [
                     {
                         id: 6, type: "folder", name: "Отдел юридических вопросов", childrens: [
                             { id: 7, type: "link", name: "Реестр договоров", href: "/" },
-                            { id: 8, type: "link", name: "Реестр приложений", href: "/" },
-                            { id: 9, type: "link", name: "Отчеты", href: "/" },
+                            { id: 8, type: "link", name: "Реестр приложений", href: "/", marked: true },
+                            { id: 9, type: "link", name: "Отчеты", href: "/", marked: true },
                             { id: 10, type: "link", name: "Выписки", href: "/" }
                         ]
                     },

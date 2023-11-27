@@ -1,36 +1,101 @@
+import { useState } from "react";
 import styled from "styled-components";
-import { menuData } from "./data";
+import { NavLink } from "react-router-dom";
+import { menuData } from "./data.js";
+import folderOpenIcon from "../assets/Menu/folderOpen.svg";
+import folderCloseIcon from "../assets/Menu/folderClose.svg";
+import linkIcon from "../assets/Menu/link.svg";
+import markIcon from "../assets/Menu/mark.svg";
 
 const StyledMenu = styled.div`
 background: inherit;
 height:100vh;
+padding-top: 30px;
+color:var(--color-light-text);
+font-size: 16px;
+font-weight: 400;
 `;
-const Link = ({ name }) => {
-  return (
-    <span>{name}</span>
 
+const searchInput = styled.input`
+width: 320px;
+height: 32px;
+border-radius: 16px;
+opacity: 0.1;
+background: var(--color-light-text); 
+`;
+
+const StyledLink = styled.div`
+  .linkImage{
+  width: 16px;
+  height: 16px;
+  margin-right: 16px;
+
+  }
+  .markedImage{
+    margin-right: 16px;
+  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 16px;
+  margin-right: 32px;
+  margin-top: 9px;
+  margin-bottom: 9px;
+`;
+
+const StyledFolder = styled.div`
+  .folderImage{
+    margin-right: 10px;
+  }
+    margin-left: 16px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+
+`;
+
+const Collapsible = styled.div`
+  height: ${p => (p.isOpen ? 'auto' : '0')};
+  overflow: hidden;
+`;
+
+const Link = ({ name, marked, href }) => {
+  return (
+    <StyledLink>
+      <div>
+        <img className="linkImage" src={linkIcon} alt="linkIcon" />
+        <NavLink to={href}> 
+          {name}
+        </NavLink>
+      </div>
+      {marked && <img src={markIcon} className="markedImage" alt="markIcon" />}
+    </StyledLink>
   );
 };
 
 const Folder = ({ name, children }) => {
+  const [isOpen, setIsOpen] = useState(true);
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
+  };
   return (
-      <div>
-        <span>{name}</span>
-      <div>{children}</div>
-      </div>
+    <StyledFolder>
+      {(isOpen) ?
+        (<img src={folderOpenIcon} className="folderImage" onClick={toggleOpen} alt="Open" />)
+        : (<img src={folderCloseIcon} className="folderImage" onClick={toggleOpen} alt="Close" />)}
+      <span>{name}</span>
+      <Collapsible isOpen={isOpen}>{children}</Collapsible>
+    </StyledFolder>
   );
 };
+
 const TreeRecursive = ({ data }) => {
-  // loop through the data
   return data.map(item => {
-    // if its a file render <File />
     if (item.type === 'link') {
-      return <Link name={item.name} />;
+      return <Link name={item.name} marked={item.marked} href={item.href} key={item.id} />;
     }
-    // if its a folder render <Folder />
     if (item.type === 'folder') {
       return (
-        <Folder name={item.name}>
+        <Folder name={item.name} key={item.id}>
           <TreeRecursive data={item.childrens} />
         </Folder>
       );
@@ -43,7 +108,11 @@ export const Menu = () => {
   return (
     <>
       <StyledMenu>
-        <h1>Menu</h1>
+        <form action="">
+          <searchInput />
+        </form>
+
+
         <TreeRecursive data={menuData} />
       </StyledMenu>
     </>
