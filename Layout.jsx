@@ -72,7 +72,7 @@ export function Layout() {
             <Sidebar open={sidebarOpen} handler={SidebarOpenHandler} />
           </ButtonPanelContainer>
           <MenuContainer open={sidebarOpen}>
-            <Menu />
+            <Menu handler={SidebarOpenHandler}/>
           </MenuContainer>
         </SidebarContainer>
         <FormContainer open={sidebarOpen}>
