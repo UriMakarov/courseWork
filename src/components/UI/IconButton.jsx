@@ -31,8 +31,6 @@ const StyledNumber = styled.p`
     font-weight: 700;
  `;
 
-
-
 const StyledIconButton = styled.img`
     margin:10px;
 `;
@@ -53,7 +51,7 @@ export function IconButton({ img, open, onClick, num = 0, alt }) {
     );
 }
 IconButton.propTypes = {
-    img: PropTypes.any,
+    img: PropTypes.img,
     open: PropTypes.bool,
     onClick: PropTypes.func,
     num: PropTypes.number,

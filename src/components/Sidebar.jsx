@@ -54,10 +54,9 @@ height: 26px;
 
 export const Sidebar = ({ open, handler }) => {
     const burgerIcon = open ? burgerOpenIcon : burgerCloseIcon;
-    const [numFolder, setnumFolder] = useState(7);
-    const [numList, setnumList] = useState(8);
-    const [numBell, setnumBell] = useState(99);
-
+    const [numFolder, ] = useState(7);
+    const [numList, ] = useState(8);
+    const [numBell, ] = useState(99);
     return (
         <>
             <StyledSideBar open={open}>
@@ -71,7 +70,6 @@ export const Sidebar = ({ open, handler }) => {
                 <StyledUserContainer>
                     <StyledUserIcon src={userIcon} alt='User' />
                 </StyledUserContainer>
-
             </StyledSideBar>
         </>
     )
