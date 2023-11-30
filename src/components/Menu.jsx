@@ -31,11 +31,10 @@ const StyledLink = styled(NavLink)`
 }
 &:focus{
   border-radius: 8px;
-  background: #4B9BE7; 
-}
+  background: rgba(255, 255, 255, 0.1); }
 &:active{
   border-radius: 8px;
-  background: #4B9BE7; 
+  background: rgba(255, 255, 255, 0.1); 
 };
 .active{
   color: green;
