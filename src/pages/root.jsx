@@ -43,8 +43,6 @@ const StyledDotIcon = styled.img`
   margin-right: 6px;
 `;
 
-
-
 export function Root() {
   return (
     <>

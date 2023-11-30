@@ -51,7 +51,7 @@ export function IconButton({ img, open, onClick, num = 0, alt }) {
     );
 }
 IconButton.propTypes = {
-    img: PropTypes.img,
+    img: PropTypes.any,
     open: PropTypes.bool,
     onClick: PropTypes.func,
     num: PropTypes.number,

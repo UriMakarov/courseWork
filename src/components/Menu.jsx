@@ -82,9 +82,9 @@ const Collapsible = styled.div`
 `;
 
 
-const Link = ({ name, marked, href, handler }) => {
+const Link = ({ name, marked, href }) => {
   return (
-    <StyledLink to={href} onClick={handler}>
+    <StyledLink to={href} >
       <div>
         <img className="linkImage" src={linkIcon} alt="linkIcon" />
         {name}
@@ -112,10 +112,10 @@ const Folder = ({ name, children }) => {
   );
 };
 
-const TreeRecursive = ({ data, handler }) => {
+const TreeRecursive = ({ data }) => {
   return data.map(item => {
     if (item.type === 'link') {
-      return <Link name={item.name} marked={item.marked} href={item.href} key={item.id} handler={handler} />;
+      return <Link name={item.name} marked={item.marked} href={item.href} key={item.id} />;
     }
     if (item.type === 'folder') {
       return (
@@ -128,11 +128,11 @@ const TreeRecursive = ({ data, handler }) => {
 };
 
 
-export const Menu = ({ handler }) => {
+export const Menu = () => {
   return (
     <>
-      <StyledMenu handler={handler}>
-        <TreeRecursive data={menuData} handler={handler} />
+      <StyledMenu >
+        <TreeRecursive data={menuData}  />
       </StyledMenu>
     </>
   );

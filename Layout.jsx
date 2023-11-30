@@ -54,6 +54,10 @@ flex-grow:1;
 border-radius:${(props) => (props.open ? '21.6px 0px 0px 21.6px;' : '0;')}; 
 margin-top: ${(props) => (props.open ? '45px' : '0px;')};
 margin-bottom: ${(props) => (props.open ? '45px' : '0px;')};
+@media (min-width: 1440px) {
+  margin-top:0px;
+  margin-bottom: 0px;
+  }
 padding-left: ${(props) => (props.open ? '0px' : '80px;')};
 `;
 
@@ -72,7 +76,7 @@ export function Layout() {
             <Sidebar open={sidebarOpen} handler={SidebarOpenHandler} />
           </ButtonPanelContainer>
           <MenuContainer open={sidebarOpen}>
-            <Menu handler={SidebarOpenHandler}/>
+            <Menu />
           </MenuContainer>
         </SidebarContainer>
         <FormContainer open={sidebarOpen}>
