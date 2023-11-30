@@ -248,7 +248,7 @@ flex-grow:1;
 border-radius:${e=>e.open?"21.6px 0px 0px 21.6px;":"0;"}; 
 margin-top: ${e=>e.open?"45px;":"0px;"};
 margin-bottom: ${e=>e.open?"45px;":"0px;"};
-background: ${e=>e.open?"rgba(255, 255, 255, 0.8);":"white;"};
+/* opacity:0.1; */
 
 
 
