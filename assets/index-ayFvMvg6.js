@@ -217,14 +217,14 @@ flex-direction: row;
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5); 
+  background: rgba(255, 255, 255, 0.3); 
   align-self: center;
   margin-left: -25px;
   cursor: pointer;
 `,Mv=({onClick:e})=>D.jsx(Nv,{onClick:e,children:D.jsx("img",{src:kv,alt:"crossIcon"})}),Dv=b.div`
   height: ${e=>e.isOpen?"auto":"0"};
   overflow: hidden;
-`,Iv=({name:e,marked:t,href:n})=>D.jsxs(Rv,{to:n,children:[D.jsxs("div",{children:[D.jsx("img",{className:"linkImage",src:xv,alt:"linkIcon"}),e]}),t&&D.jsx("img",{src:Cv,className:"markedImage",alt:"markIcon"})]}),jv=({name:e,children:t})=>{const[n,r]=_.useState(!0),l=()=>{r(!n)};return D.jsxs(Lv,{children:[D.jsxs("div",{className:"folderName",children:[n?D.jsx("img",{src:wv,className:"folderImage",onClick:l,alt:"Open"}):D.jsx("img",{src:Sv,className:"folderImage",onClick:l,alt:"Close"}),D.jsx("span",{children:e})]}),D.jsx(Dv,{isOpen:n,children:t})]})},kp=({item:e,searchText:t})=>{if(e.type==="folder")return D.jsx("li",{children:D.jsx(jv,{name:e.name,children:D.jsx("ul",{children:e.childrens.map(n=>D.jsx(kp,{item:n,searchText:t},n.id))})})});if(e.type==="link"&&e.name.toLowerCase().includes(t.toLowerCase()))return D.jsx(Iv,{name:e.name,marked:e.marked,href:e.href})},Ov=()=>{const[e,t]=_.useState(""),n=l=>{const{value:i}=l.target;t(i)},r=()=>{t("")};return D.jsx(D.Fragment,{children:D.jsxs(_v,{children:[D.jsxs(Tv,{children:[D.jsx(Pv,{value:e,onChange:n,placeholder:"Найти"}),e&&D.jsx(Mv,{onClick:r})]}),D.jsx("ul",{children:yv.map(l=>D.jsx(kp,{item:l,searchText:e},l.id))})]})})},zv=b.div`
+`,Iv=({name:e,marked:t,href:n})=>D.jsxs(Rv,{to:n,children:[D.jsxs("div",{children:[D.jsx("img",{className:"linkImage",src:xv,alt:"linkIcon"}),e]}),t&&D.jsx("img",{src:Cv,className:"markedImage",alt:"markIcon"})]}),jv=({name:e,children:t})=>{const[n,r]=_.useState(!0),l=()=>{r(!n)};return D.jsxs(Lv,{children:[D.jsxs("div",{className:"folderName",children:[n?D.jsx("img",{src:wv,className:"folderImage",onClick:l,alt:"Open"}):D.jsx("img",{src:Sv,className:"folderImage",onClick:l,alt:"Close"}),D.jsx("span",{children:e})]}),D.jsx(Dv,{isOpen:n,children:t})]})},kp=({item:e,searchText:t})=>{if(e.type==="folder")return D.jsx("li",{children:D.jsx(jv,{name:e.name,children:D.jsx("ul",{children:e.childrens.map(n=>D.jsx(kp,{item:n,searchText:t},n.id))})},e.id)});if(e.type==="link"&&e.name.toLowerCase().includes(t.toLowerCase()))return D.jsx(Iv,{name:e.name,marked:e.marked,href:e.href},e.id)},Ov=()=>{const[e,t]=_.useState(""),n=l=>{const{value:i}=l.target;t(i)},r=()=>{t("")};return D.jsx(D.Fragment,{children:D.jsxs(_v,{children:[D.jsxs(Tv,{children:[D.jsx(Pv,{value:e,onChange:n,placeholder:"Найти"}),e&&D.jsx(Mv,{onClick:r})]}),D.jsx("ul",{children:yv.map(l=>D.jsx(kp,{item:l,searchText:e},l.id))})]})})},zv=b.div`
   display: flex;
   height: 100vh;
   width: 100%;
