@@ -7,6 +7,8 @@ import folderOpenIcon from "../assets/Menu/folderOpen.svg";
 import folderCloseIcon from "../assets/Menu/folderClose.svg";
 import linkIcon from "../assets/Menu/link.svg";
 import markIcon from "../assets/Menu/mark.svg";
+import crossIcon from "../assets/Menu/cross.svg";
+import { SearchInput } from "./UI/SearchInput.jsx";
 
 const StyledMenu = styled.div`
 background: inherit;
@@ -16,14 +18,6 @@ color:var(--color-light-text);
 font-size: 16px;
 font-weight: 400;
 `;
-
-// const searchInput = styled.input`
-// width: 320px;
-// height: 32px;
-// border-radius: 16px;
-// opacity: 0.1;
-// background: var(--color-light-text); 
-// `;
 
 const StyledLink = styled(NavLink)`
 &:hover{
@@ -37,10 +31,8 @@ const StyledLink = styled(NavLink)`
   background: rgba(255, 255, 255, 0.1); 
 };
 .active{
-  color: green;
+  /* color: green; */
 }
-
-
 
 .linkImage{
   width: 16px;
@@ -71,15 +63,35 @@ const StyledFolder = styled.div`
     margin-left: 16px;
     margin-top: 9px;
     margin-bottom: 9px;
+`;
+
+const StyledSeatchContainer = styled.div`
+display: flex;
+flex-direction: row;
 
 `;
 
+const StyledClearButton = styled.button`
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5); 
+  align-self: center;
+  margin-left: -25px;
+  cursor: pointer;
+`;
+const ClearButton = ({ onClick }) => {
+  return (
+    <StyledClearButton onClick={onClick}>
+      <img src={crossIcon} alt="crossIcon" />
+    </StyledClearButton>
+  );
+};
 
 const Collapsible = styled.div`
   height: ${p => (p.isOpen ? 'auto' : '0')};
   overflow: hidden;
 `;
-
 
 const Link = ({ name, marked, href }) => {
   return (
@@ -100,38 +112,60 @@ const Folder = ({ name, children }) => {
   };
   return (
     <StyledFolder>
-      <div className = "folderName">
-      {(isOpen) ?
-        (<img src={folderOpenIcon} className="folderImage" onClick={toggleOpen} alt="Open" />)
-        : (<img src={folderCloseIcon} className="folderImage" onClick={toggleOpen} alt="Close" />)}
-      <span>{name}</span>
+      <div className="folderName">
+        {(isOpen) ?
+          (<img src={folderOpenIcon} className="folderImage" onClick={toggleOpen} alt="Open" />)
+          : (<img src={folderCloseIcon} className="folderImage" onClick={toggleOpen} alt="Close" />)}
+        <span>{name}</span>
       </div>
       <Collapsible isOpen={isOpen}>{children}</Collapsible>
     </StyledFolder>
   );
 };
 
-const TreeRecursive = ({ data }) => {
-  return data.map(item => {
-    if (item.type === 'link') {
-      return <Link name={item.name} marked={item.marked} href={item.href} key={item.id} />;
-    }
-    if (item.type === 'folder') {
-      return (
-        <Folder name={item.name} key={item.id}>
-          <TreeRecursive data={item.childrens} />
+const MenuItem = ({ item, searchText }) => {
+  if (item.type === 'folder') {
+    return (
+      <li>
+        <Folder name={item.name}>
+          <ul>
+            {item.childrens.map((child) => (
+              <MenuItem key={child.id} item={child} searchText={searchText} />
+            ))}
+          </ul>
         </Folder>
-      );
-    }
-  });
+      </li>
+    );
+  } else if (item.type === 'link' && item.name.toLowerCase().includes(searchText.toLowerCase())) {
+    return <Link name={item.name} marked={item.marked} href={item.href} />;
+  }
 };
 
-
 export const Menu = () => {
+  const [searchText, setSearchText] = useState('');
+
+  const searchInputChange = (event) => {
+    const { value } = event.target;
+    setSearchText(value);
+  };
+
+  const searchInputClear = () => {
+    setSearchText('');
+
+  };
+
   return (
     <>
       <StyledMenu >
-        <TreeRecursive data={menuData}  />
+        <StyledSeatchContainer>
+          <SearchInput value={searchText} onChange={searchInputChange} placeholder={"Найти"} />
+          {searchText && <ClearButton onClick={searchInputClear} />}
+        </StyledSeatchContainer>
+        <ul>
+          {menuData.map((item) => (
+            <MenuItem key={item.id} item={item} searchText={searchText} />
+          ))}
+        </ul>
       </StyledMenu>
     </>
   );

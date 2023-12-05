@@ -53,7 +53,7 @@ flex-grow:1;
 border-radius:${(props) => (props.open ? '21.6px 0px 0px 21.6px;' : '0;')}; 
 margin-top: ${(props) => (props.open ? '45px;' : '0px;')};
 margin-bottom: ${(props) => (props.open ? '45px;' : '0px;')};
-background: ${(props) => (props.open ? 'rgba(255, 255, 255, 0.8);' : 'white;')};
+background: ${(props) => (props.open ? 'rgba(255, 255, 255, 0.8);' : 'white;')}; 
 
 
 
