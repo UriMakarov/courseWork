@@ -67,7 +67,6 @@ const StyledFolder = styled.div`
 
 const StyledSeatchContainer = styled.div`
 display: flex;
-flex-direction: row;
 
 `;
 
@@ -75,7 +74,7 @@ const StyledClearButton = styled.button`
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5); 
+  background: rgba(255, 255, 255, 0.3); 
   align-self: center;
   margin-left: -25px;
   cursor: pointer;
@@ -89,7 +88,7 @@ const ClearButton = ({ onClick }) => {
 };
 
 const Collapsible = styled.div`
-  height: ${p => (p.isOpen ? 'auto' : '0')};
+  height: ${(props) => (props.isOpen ? 'auto' : '0')};
   overflow: hidden;
 `;
 
@@ -127,7 +126,7 @@ const MenuItem = ({ item, searchText }) => {
   if (item.type === 'folder') {
     return (
       <li>
-        <Folder name={item.name}>
+        <Folder name={item.name} key={item.id}>
           <ul>
             {item.childrens.map((child) => (
               <MenuItem key={child.id} item={child} searchText={searchText} />
@@ -137,7 +136,7 @@ const MenuItem = ({ item, searchText }) => {
       </li>
     );
   } else if (item.type === 'link' && item.name.toLowerCase().includes(searchText.toLowerCase())) {
-    return <Link name={item.name} marked={item.marked} href={item.href} />;
+    return <Link name={item.name} marked={item.marked} href={item.href} key={item.id}/>;
   }
 };
 
@@ -151,7 +150,6 @@ export const Menu = () => {
 
   const searchInputClear = () => {
     setSearchText('');
-
   };
 
   return (

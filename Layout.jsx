@@ -58,7 +58,7 @@ background: ${(props) => (props.open ? 'rgba(255, 255, 255, 0.8);' : 'white;')};
 
 
 
-@media (min-width: 1440px) {
+@media (min-width: 1920px) {
   margin-top:0px;
   margin-bottom: 0px;
   background:white;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {LoanSearchInput} from "../components/UI/LoanSearchInput.jsx"
 import dotIcon from "../assets/dot.svg"
 
 const StyledRootDiv = styled.div`
@@ -43,6 +44,8 @@ const StyledDotIcon = styled.img`
   margin-right: 6px;
 `;
 
+
+
 export function Root() {
   return (
     <>
@@ -59,7 +62,7 @@ export function Root() {
             </StyledSubTitle>
           </StyledLeftHeader>
           <StyleRightHeader>
-            Найти
+            <LoanSearchInput placeholder="Найти"/>
           </StyleRightHeader>
         </StyledHeader>
         
