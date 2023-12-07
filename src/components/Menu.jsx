@@ -151,7 +151,6 @@ export const Menu = () => {
   const searchInputClear = () => {
     setSearchText('');
   };
-
   return (
     <>
       <StyledMenu >

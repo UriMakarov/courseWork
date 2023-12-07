@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Root } from "../pages/root.jsx";
-import { Home } from "../pages/home.jsx";
-import { Layout } from "../../Layout.jsx";
+import { Root } from "../src/pages/root.jsx";
+import { Home } from "../src/pages/home.jsx";
+import { Layout } from "../src/Layout.jsx";
 // import { About } from '../pages/about.jsx';
 import { ROUTE_PATHES } from "./pathes.js";
 
-import { NotFoundPage } from "../pages/notFound.jsx";
+import { NotFoundPage } from "../src/pages/notFound.jsx";
 
 export const router = createBrowserRouter([
   {
