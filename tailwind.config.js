@@ -5,12 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      'roboto': ['Roboto']
+    },
     extend: {
       screens: {
         '3xl': '1920px',
         'max-3xl': {'max': '1919px'},
       },
       colors:{
+        'white': '#FFF',
         'text': '#041526',
         'light-text': '#FFF',
         'blue': '#1173DA',

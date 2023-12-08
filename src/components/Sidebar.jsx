@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { IconButton } from './UI/IconButton';
@@ -11,69 +10,29 @@ import listIcon from "../assets/list.svg";
 import bellIcon from "../assets/bell.svg";
 import userIcon from "../assets/user.svg";
 
-const StyledSideBar = styled.div`
-height:100%;
-display: flex;
-flex-direction: column;
-`;
-
-const StyledColvirIcon = styled.img`
-margin: 20px;  
-width: 32px;
-height: 32px; 
-`;
-
-const StyledButtonPanel = styled.div`
-width: 72px;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-
-margin-top: auto;
-margin-bottom: auto;
-gap: 22px;
-`;
-
-const StyledUserContainer = styled.div`
-width: 40px;
-height: 40px;
-border-radius: 8px;
-background: var(--color-icon-bg);
-margin-bottom:16px;
-margin-left: 16px;
-display: flex;
-justify-content: center;
-align-items: center;
-`
-const StyledUserIcon = styled.img`
-margin: 20px;  
-width: 26px;
-height: 26px; 
-`;
-
 export const Sidebar = ({ open, handler }) => {
     const burgerIcon = open ? burgerOpenIcon : burgerCloseIcon;
-    const [numFolder, ] = useState(7);
-    const [numList, ] = useState(8);
-    const [numBell, ] = useState(99);
+    const [numFolder,] = useState(7);
+    const [numList,] = useState(8);
+    const [numBell,] = useState(99);
     return (
         <>
-            <StyledSideBar open={open}>
-                <StyledColvirIcon src={colvirIcon} alt='Colvir' />
-                <StyledButtonPanel>
+            <div className={'h-full flex flex-col'}> {/* sidebar with buttons */}
+                <img className='m-[20px] w-[32px] h-[32px]' src={colvirIcon} alt='Colvir icon' />
+                <div className='w-[72px] flex flex-col gap-[22px] my-auto justify-center items-center'> {/* panel wih 4 buttons */}
                     <IconButton img={burgerIcon} open={open} onClick={handler} alt='burgerIcon' />
                     <IconButton img={folderIcon} num={numFolder} alt='folderIcon' />
                     <IconButton img={listIcon} num={numList} alt='listIcom' />
                     <IconButton img={bellIcon} num={numBell} alt="bellIcon" />
-                </StyledButtonPanel>
-                <StyledUserContainer>
-                    <StyledUserIcon src={userIcon} alt='User' />
-                </StyledUserContainer>
-            </StyledSideBar>
+                </div>{/* <UserContainer> */}
+                <div className='bg-icon-bg h-[40px] w-[40px] self-center flex items-center justify-center rounded-[8px] m-[16px]'>
+                    <img src={userIcon} alt='User' />
+                </div>
+            </div>
         </>
     )
 }
+
 Sidebar.propTypes = {
     open: PropTypes.bool,
     handler: PropTypes.func,

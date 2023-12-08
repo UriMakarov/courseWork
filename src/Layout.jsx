@@ -24,10 +24,10 @@ export function Layout() {
             {sidebarOpen && <Menu />}
           </div>
         </div>
-        <div className={`flex grow bg-[green]  ${sidebarOpen ? 'max-3xl:my-[5vh] max-3xl:rounded-l-[22px]' : 'rounded-none'} `} > {/* outlet container */}
+        <div className={`flex grow bg-white  ${sidebarOpen ? 'max-3xl:my-[5vh] max-3xl:rounded-l-[22px]' : 'rounded-none'} `} > {/* outlet container */}
           <Outlet />
         </div>
-        {sidebarOpen && <div className={`absolute w-3/4 h-[90vh] ml-[25%] my-[5vh] bg-white rounded-l-[22px] overflow-hidden opacity-80 3xl:hidden`} />} {/* outlet cover */}
+        {sidebarOpen && <div className={`absolute w-[75%] h-[90vh] ml-[25%] my-[5vh] bg-white rounded-l-[22px] overflow-hidden opacity-80 3xl:hidden`} />} {/* outlet cover */}
       </div>
     </>
   );
