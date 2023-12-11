@@ -20,28 +20,18 @@ font-weight: 400;
 `;
 
 const StyledLink = styled(NavLink)`
-&:hover{
-/* color: blue; */
-}
-&:focus{
+&:focus,&:active{
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.1); }
-&:active{
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1); 
-};
-.active{
-  /* color: green; */
-}
 
 .linkImage{
   width: 16px;
   height: 16px;
   margin-right: 16px;
-
 };
 .markedImage{
     margin-right: 16px;
+    justify-self: flex-end;
   };
   display: flex;
   flex-direction: row;
@@ -50,24 +40,13 @@ const StyledLink = styled(NavLink)`
   margin-right: 32px;
   padding-top: 9px;
   padding-bottom: 9px;
-
+  width: 100%;
 `;
 
-const StyledFolder = styled.div`
-  .folderImage{
-    margin-right: 10px;
-  }
-  .folderName{
-    margin-bottom: 9px;
-  }
-    margin-left: 16px;
-    margin-top: 9px;
-    margin-bottom: 9px;
-`;
+
 
 const StyledSeatchContainer = styled.div`
 display: flex;
-
 `;
 
 const StyledClearButton = styled.button`
@@ -95,9 +74,9 @@ const Collapsible = styled.div`
 const Link = ({ name, marked, href }) => {
   return (
     <StyledLink to={href} >
-      <div>
+      <div className="flex flex-row items-center">
         <img className="linkImage" src={linkIcon} alt="linkIcon" />
-        {name}
+        <p className="text-white">{name}</p>
       </div>
       {marked && <img src={markIcon} className="markedImage" alt="markIcon" />}
     </StyledLink>
@@ -110,15 +89,15 @@ const Folder = ({ name, children }) => {
     setIsOpen(!isOpen);
   };
   return (
-    <StyledFolder>
-      <div className="folderName">
+    <div className="ml-[16px] mt-[9px]">
+      <div className="flex flex-row mb-[9px] text-white">
         {(isOpen) ?
-          (<img src={folderOpenIcon} className="folderImage" onClick={toggleOpen} alt="Open" />)
-          : (<img src={folderCloseIcon} className="folderImage" onClick={toggleOpen} alt="Close" />)}
+          (<img src={folderOpenIcon} className="mr-[10px]" onClick={toggleOpen} alt="Open" />)
+          : (<img src={folderCloseIcon} className="mr-[10px]" onClick={toggleOpen} alt="Close" />)}
         <span>{name}</span>
       </div>
       <Collapsible isOpen={isOpen}>{children}</Collapsible>
-    </StyledFolder>
+    </div>
   );
 };
 

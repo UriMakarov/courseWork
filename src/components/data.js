@@ -20,17 +20,21 @@ export const menuData = [
                             { id: 10, type: "link", name: "Выписки", href: "/" }
                         ]
                     },
-                    { id: 11, type: "folder", name: "Отдел сопровождения сделок", childrens: [] },
-                    { id: 12, type: "folder", name: "Отдел безопасности", childrens: [] },
+                    { id: 11, type: "folder", name: "Отдел сопровождения сделок", childrens: [
+                        { id: 12, type: "link", name: "Сопровождение", href: "/" }
+                    ] },
+                    { id: 13, type: "folder", name: "Отдел безопасности", childrens: [
+                        { id: 14, type: "link", name: "Безопасность", href: "/" }
+                    ] },
                 ]
             },
 
         ]
     },
     {
-        id: 13, type: "folder", name: "Карточные продукты",
+        id: 15, type: "folder", name: "Карточные продукты",
         childrens: [
-            { type: "link", name: "Выписки", href: "/" }
+            { id: 16, type: "link", name: "Выписки", href: "/" }
         ]
     },
 
