@@ -4,7 +4,7 @@ export const menuData = [
         id: 1, type: "folder", name: "Кредиты",
         childrens: [
             { id: 2, type: "link", name: "Кредит", href: "/" },
-            { id: 3, type: "link", name: "Автокредит", href: "/home" }
+            { id: 3, type: "link", name: "Список кредитов", href: "/home" }
         ]
     },
     {

@@ -76,7 +76,7 @@ const Link = ({ name, marked, href }) => {
     <StyledLink to={href} >
       <div className="flex flex-row items-center">
         <img className="linkImage" src={linkIcon} alt="linkIcon" />
-        <p className="text-white">{name}</p>
+        <p className="text-white font-roboto">{name}</p>
       </div>
       {marked && <img src={markIcon} className="markedImage" alt="markIcon" />}
     </StyledLink>
@@ -94,7 +94,7 @@ const Folder = ({ name, children }) => {
         {(isOpen) ?
           (<img src={folderOpenIcon} className="mr-[10px]" onClick={toggleOpen} alt="Open" />)
           : (<img src={folderCloseIcon} className="mr-[10px]" onClick={toggleOpen} alt="Close" />)}
-        <span>{name}</span>
+        <span className="font-roboto">{name}</span>
       </div>
       <Collapsible isOpen={isOpen}>{children}</Collapsible>
     </div>

@@ -3,14 +3,11 @@ import { Outlet } from "react-router-dom";
 import { Sidebar } from "../src/components/Sidebar.jsx";
 import { Menu } from "../src/components/Menu.jsx";
 
-
-
 export function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   function SidebarOpenHandler() {
     setSidebarOpen(!sidebarOpen);
-    console.log(sidebarOpen)
   }
 
   return (
@@ -19,7 +16,7 @@ export function Layout() {
         <div className={`flex ${sidebarOpen ? 'w-[32%] 3xl:w-[25%]' : 'bg-white'} `} > {/* left sidebar + menu */}
           <div className={`flex ${sidebarOpen 
             ? 'w-1/4 rounded-none' 
-            : 'w-[72px] rounded-xl m-[8px] bg-gradient-to-b from-blue to-light-blue'}`} >{/* sidebar container */}
+            : 'w-[72px] rounded-xl my-[8px] ml-[8px] bg-gradient-to-b from-blue to-light-blue'}`} >{/* sidebar container */}
             <Sidebar open={sidebarOpen} handler={SidebarOpenHandler} />
             {sidebarOpen && <Menu />}
           </div>
