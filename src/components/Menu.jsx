@@ -2,7 +2,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { menuData } from "./data.js";
+import { menuData } from "./menuData.js";
 import folderOpenIcon from "../assets/Menu/folderOpen.svg";
 import folderCloseIcon from "../assets/Menu/folderClose.svg";
 import linkIcon from "../assets/Menu/link.svg";

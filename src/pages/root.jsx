@@ -1,68 +1,51 @@
 // import {LoanSearchInput} from "../components/UI/LoanSearchInput.jsx"
+import { useState } from "react";
+import { Wizard } from "../components/Wizard.jsx";
 import dotIcon from "../assets/dot.svg"
-
-// const StyledRootDiv = styled.div`
-
-// `;
-// const StyledHeader = styled.div`
-// display: flex;
-// flex-direction: row;
-// border-bottom: 2px solid var(--color-lines-white);
-// `;
-
-// const StyledLeftHeader = styled.div`
-// margin-left: 24px;
-// `;
-
-// const StyleRightHeader = styled.div`
-// flex-grow:1;
-// display: flex;
-// justify-content: end;
-// align-items: center;
-
-// `;
-// const StyledTitle = styled.h3`
-// margin-top: 24px;
-// margin-bottom: 4px;
-// color: var(--color-text);
-// font-size: 12px;
-// font-weight: 400;
-// line-height: 14px; 
-// opacity: 0.5;
-
-// `;
-
-// const StyledSubTitle = styled.h1`
-//   color: var(--color-blue);
-//   font-size: 24px;
-//   font-weight: 300;
-//   margin-bottom: 24px;
-// `;
-// const StyledDotIcon = styled.img`
-//   margin-left: 6px;
-//   margin-right: 6px;
-// `;
-
 
 
 export function Root() {
+  const [selectedItemId, setSelectedItem] = useState();
+  const [selectedSubItemId, setSelectedsubItem] = useState();
+
   return (
     <>
-      <div className="flex basis-full flex-row h-[94px] border-b-2 border-lines-white justify-between">
+      <div className="flex flex-row basis-full max-h-[10%] border-b-2 border-lines-white justify-between"> {/* header */}
         <div className="ml-[24px]">
-          <div className="flex fex-row  mt-[24px] mb-[4px] h-[14px] items-center">
+          <div className="flex fex-row  mt-[4%] mb-[4px] h-[14px] items-center">
             <p className="font-roboto text-[12px] leading-[14px] opacity-50">Договор или продукт</p>
             <img src={dotIcon} alt="dot" className="h-[3px] w-[3px] mx-[6px]" />
             <p className="font-roboto text-[12px] leading-[14px] opacity-50">Кредит</p>
           </div>
           <div>
+          </div> <p className="font-roboto text-[24px] font-[300] text-blue ">Продукт: Равномерное распределение ОД</p>
+        </div>
+        <p className="self-center justify-self-end">Поиск</p>
+      </div>
+
+      <div className="flex flex-row h-[100%]">
+
+        <div className="p-[24px]">
+          <div className='h-[100%] w-[258px] rounded-xl bg-bg-white  self-start'>  {/* wizard container */}
+            < Wizard selectedItemId={selectedItemId}
+              selectedSubItemId={selectedSubItemId}
+              setSelectedItem={setSelectedItem}
+              setSelectedsubItem={setSelectedsubItem} />
           </div>
-          <p className="font-roboto text-[24px] font-[300] text-blue ">Продукт: Равномерное распределение ОД</p>
+        </div>
+        <div className="flex flex-col h-[100%] w-[100%]">
+          <div className=" h-[90%] w-[100%] bg-slate-400">
+            <p>Grid</p>
+          </div>
+          <div className=" h-[10%] w-[100%] bg-yellow">
+            <p>Pagination</p>
+          </div>
 
         </div>
 
-        <p className="self-center justify-self-end">Поиск</p>
       </div>
+
     </>
+
   );
 }
