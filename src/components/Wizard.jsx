@@ -1,23 +1,21 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
-import { wizardData } from "./wizardData";
+import { wizardData } from "./wizardData.js";
+import { RedCircle } from "./UI/RedCircle.jsx";
 
 
 
 const WizardItem = ({ item, selectedItemId, selectedSubItemId, setSelectedItem, setSelectedsubItem }) => {
     const sel = selectedItemId === item.id;
-
     return (
         <>
             <li onClick={() => setSelectedItem(item.id)} className=''>
                 <div className="flex flex-row items-center cursor-pointer">
                     <div className={`flex justify-center items-center w-6 h-6 rounded-md ml-6 mr-2 ${sel ? 'bg-blue' : ' bg-text bg-opacity-10 '}`}>
-                        <p className={`font-roboto text-xs font-bold ${sel ? 'text-white' : 'text-text'}`}>{item.num}</p>
+                        <p className={`font-roboto text-[12px]] font-bold ${sel ? 'text-white' : 'text-text'}`}>{item.num}</p>
                     </div>
-                    <p className={`font-roboto text-xs font-bold  ${sel ? 'text-blue' : 'text-text'}`}>{item.name}</p>
-                    {sel && <p>{item.childrens.length}</p>}
+                    <p className={`font-roboto text-[12px] font-bold  ${sel ? 'text-blue' : 'text-text'}`}>{item.name}</p>
+                    {sel && <RedCircle num={item.childrens.length} />}
                 </div>
-                {/* TODO кружочек с циферкой */}
                 {(!item.last && !sel) && <div className="w-[2px] h-2 ml-[36px] my-2 bg-text bg-opacity-20" />}
             </li>
             {sel && <WizardSubItem item={item} selectedSubItemId={selectedSubItemId} setSelectedsubItem={setSelectedsubItem} />}
@@ -34,7 +32,7 @@ const WizardSubItem = ({ item, selectedSubItemId, setSelectedsubItem }) => {
                     <ul className="gap-[13px]">
                         {item.childrens.map((child) => (
                             <li key={child.id} onClick={() => setSelectedsubItem(child.id)} className='mb-3 mt-3' >
-                                <p className={`font-roboto text-xs ml-[19px] cursor-pointer
+                                <p className={`font-roboto text-[12px] ml-[19px] cursor-pointer
                                 ${(selectedSubItemId === child.id) ? 'text-blue' : 'text-text opacity-50'} `}>{child.name}</p>
                             </li>
                         ))}
@@ -46,8 +44,6 @@ const WizardSubItem = ({ item, selectedSubItemId, setSelectedsubItem }) => {
 }
 
 export const Wizard = ({ selectedItemId, selectedSubItemId, setSelectedItem, setSelectedsubItem }) => {
-    const [subItemsCount, setSubItemsCount] = useState(0);
-
     return (
         <div>
             <ul className="pt-6">
