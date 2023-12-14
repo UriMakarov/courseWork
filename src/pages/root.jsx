@@ -2,11 +2,14 @@
 import { useState } from "react";
 import { Wizard } from "../components/Wizard.jsx";
 import dotIcon from "../assets/dot.svg"
+import { LoanGrid } from "../components/LoanGrid.jsx";
 
 
 export function Root() {
   const [selectedItemId, setSelectedItem] = useState();
   const [selectedSubItemId, setSelectedsubItem] = useState();
+
+
 
   return (
     <>
@@ -34,10 +37,10 @@ export function Root() {
           </div>
         </div>
         <div className="flex flex-col h-[100%] w-[100%]">
-          <div className=" h-[90%] w-[100%] bg-slate-400">
-            <p>Grid</p>
+          <div className=" h-[90%] w-[100%]"> {/* grid */}
+            <LoanGrid/>
           </div>
-          <div className=" h-[10%] w-[100%] bg-yellow">
+          <div className=" h-[10%] w-[100%] bg-slate-400">
             <p>Pagination</p>
           </div>
 

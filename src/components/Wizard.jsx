@@ -1,24 +1,28 @@
 /* eslint-disable react/prop-types */
 import { wizardData } from "./wizardData.js";
-import { RedCircle } from "./UI/RedCircle.jsx";
+import { RedCircle } from "./UI/Redcircle.jsx";
+import downIcon from "../assets/triangledown.svg";
 
 
 
-const WizardItem = ({ item, selectedItemId, selectedSubItemId, setSelectedItem, setSelectedsubItem }) => {
+const WizardItem = ({ item, selectedItemId, selectedSubItemId, setSelectedItem, setSelectedsubItem  }) => {
     const sel = selectedItemId === item.id;
     return (
         <>
             <li onClick={() => setSelectedItem(item.id)} className=''>
-                <div className="flex flex-row items-center cursor-pointer">
-                    <div className={`flex justify-center items-center w-6 h-6 rounded-md ml-6 mr-2 ${sel ? 'bg-blue' : ' bg-text bg-opacity-10 '}`}>
-                        <p className={`font-roboto text-[12px]] font-bold ${sel ? 'text-white' : 'text-text'}`}>{item.num}</p>
+                <div className="flex flex-row items-center justify-between cursor-pointer">
+                    <div className="flex flex-row">
+                        <div className={`flex justify-center items-center w-6 h-6 rounded-md ml-6 mr-2 ${sel ? 'bg-blue' : ' bg-text bg-opacity-10 '}`}>
+                            <p className={`font-roboto text-[12px]] font-bold ${sel ? 'text-white' : 'text-text'}`}>{item.num}</p>
+                        </div>
+                        <p className={`font-roboto text-[12px] font-bold  ${sel ? 'text-blue' : 'text-text'}`}>{item.name}</p>
+                        {sel && <RedCircle num={item.childrens.length} />}
                     </div>
-                    <p className={`font-roboto text-[12px] font-bold  ${sel ? 'text-blue' : 'text-text'}`}>{item.name}</p>
-                    {sel && <RedCircle num={item.childrens.length} />}
+                    {sel && <img src={downIcon} alt="downIcon" className="justify-self-end mr-6" onClick={()=> setSelectedItem(0)}/>}
                 </div>
                 {(!item.last && !sel) && <div className="w-[2px] h-2 ml-[36px] my-2 bg-text bg-opacity-20" />}
+                {sel && <WizardSubItem item={item} selectedSubItemId={selectedSubItemId} setSelectedsubItem={setSelectedsubItem} />}
             </li>
-            {sel && <WizardSubItem item={item} selectedSubItemId={selectedSubItemId} setSelectedsubItem={setSelectedsubItem} />}
         </>
     )
 }
@@ -43,7 +47,7 @@ const WizardSubItem = ({ item, selectedSubItemId, setSelectedsubItem }) => {
     )
 }
 
-export const Wizard = ({ selectedItemId, selectedSubItemId, setSelectedItem, setSelectedsubItem }) => {
+export const Wizard = ({ selectedItemId, selectedSubItemId, setSelectedItem, setSelectedsubItem,  }) => {
     return (
         <div>
             <ul className="pt-6">
@@ -54,7 +58,6 @@ export const Wizard = ({ selectedItemId, selectedSubItemId, setSelectedItem, set
                         selectedSubItemId={selectedSubItemId}
                         setSelectedItem={setSelectedItem}
                         setSelectedsubItem={setSelectedsubItem} />
-
                 ))}
             </ul>
         </div>
