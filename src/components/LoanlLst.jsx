@@ -1,35 +1,9 @@
-import { useState, useEffect } from "react";
-import { fakerRU as faker } from '@faker-js/faker';
+import { useData } from "../hooks/useData";
 
 const LoanList = () => {
-  const [data, setData] = useState([]); 
-
-  useEffect(() => {
-    const generateData = () => {
-      const data = [];
-           for (let i = 0; i < 10; i++) {
-        const row = {
-          borrower: faker.person.fullName(),
-          type: faker.helpers.arrayElement(['Равномерное погашение ОД', 'Аннуитетное погашение']),
-          date: faker.date.recent().toLocaleDateString(), 
-          start: faker.date.past().toLocaleDateString(), 
-          end: faker.date.future().toLocaleDateString(), 
-          number: faker.finance.accountNumber(), 
-          amount: faker.finance.amount(), 
-          status: faker.helpers.arrayElement(['Активно', 'Не активно']),
-          ip: faker.internet.ip(), 
-          port: faker.datatype.number({ min: 1000, max: 10000 }), 
-        };
-        // console.log(row);
-        data.push(row);
-      }
-      return data;
-    };
-    setData(generateData());
-  }, []); 
+  const {data} = useData(); 
   return (
     <>
-
       <p>Title</p>
       <table>
         <thead>
@@ -47,8 +21,7 @@ const LoanList = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((row, index) => (
-            // рендерим каждую строку из данных
+          {data?.map((row, index) => (
             <tr key={index}>
               <td>{row.borrower}</td>
               <td>{row.type}</td>

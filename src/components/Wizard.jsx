@@ -11,7 +11,7 @@ const WizardItem = ({ item, selectedItemId, selectedSubItemId, setSelectedItem, 
         <>
             <li onClick={() => setSelectedItem(item.id)} className=''>
                 <div className="flex flex-row items-center justify-between cursor-pointer">
-                    <div className="flex flex-row">
+                    <div className="flex flex-row items-center">
                         <div className={`flex justify-center items-center w-6 h-6 rounded-md ml-6 mr-2 ${sel ? 'bg-blue' : ' bg-text bg-opacity-10 '}`}>
                             <p className={`font-roboto text-[12px]] font-bold ${sel ? 'text-white' : 'text-text'}`}>{item.num}</p>
                         </div>
@@ -36,7 +36,7 @@ const WizardSubItem = ({ item, selectedSubItemId, setSelectedsubItem }) => {
                     <ul className="gap-[13px]">
                         {item.childrens.map((child) => (
                             <li key={child.id} onClick={() => setSelectedsubItem(child.id)} className='mb-3 mt-3' >
-                                <p className={`font-roboto text-[12px] ml-[19px] cursor-pointer
+                                <p className={`font-roboto text-[12px] ml-[19px] mr-[24px] cursor-pointer
                                 ${(selectedSubItemId === child.id) ? 'text-blue' : 'text-text opacity-50'} `}>{child.name}</p>
                             </li>
                         ))}
@@ -47,7 +47,7 @@ const WizardSubItem = ({ item, selectedSubItemId, setSelectedsubItem }) => {
     )
 }
 
-export const Wizard = ({ selectedItemId, selectedSubItemId, setSelectedItem, setSelectedsubItem,  }) => {
+export const Wizard = ({ selectedItemId, selectedSubItemId, setSelectedItem, setSelectedsubItem }) => {
     return (
         <div>
             <ul className="pt-6">
