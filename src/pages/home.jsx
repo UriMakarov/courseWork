@@ -1,4 +1,4 @@
-import LoanList from "../components/LoanlLst";
+import {LoanList} from "../components/LoanlLst";
 
 export function Home() {
   return (<>

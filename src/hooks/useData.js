@@ -17,8 +17,8 @@ export function useData(count = 10) {
           amount: faker.finance.amount(),
           status: faker.datatype.boolean(),
           // status: faker.helpers.arrayElement(['Активно', 'Не активно']),
-          ip: faker.internet.ip(),
-          port: faker.datatype.number({ min: 1000, max: 9999 }),
+          ip: faker.internet.ipv4(),
+          port: faker.number.int({ min: 1000, max: 9999 }),
         };
         fakeData.push(row);
       }

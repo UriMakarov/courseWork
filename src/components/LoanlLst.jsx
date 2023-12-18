@@ -1,6 +1,6 @@
 import { useData } from "../hooks/useData.js";
 
-const LoanList = () => {
+export const LoanList = () => {
   const {data} = useData(10); 
   return (
     <div className="">
@@ -35,4 +35,9 @@ const LoanList = () => {
   );
 };
 
-export default LoanList;
+// TODO:
+// - получить фейкером 100-200 записей
+// - нарисовать красивую таблицу
+// - пагинация
+// - сортировка
+// - фильтрация
