@@ -3,13 +3,13 @@ import { useState } from "react";
 import { Wizard } from "../components/Wizard.jsx";
 import dotIcon from "../assets/dot.svg"
 import { LoanGrid } from "../components/LoanGrid.jsx";
+import { LoanSearchInput } from "../components/UI/LoanSearchInput.jsx";
+import { Pagination } from "../components/UI/Pagination.jsx";
 
 
 export function Root() {
   const [selectedItemId, setSelectedItem] = useState();
   const [selectedSubItemId, setSelectedsubItem] = useState();
-
-
 
   return (
     <>
@@ -23,7 +23,7 @@ export function Root() {
           <div>
           </div> <p className="font-roboto text-[24px] font-[300] text-blue ">Продукт: Равномерное распределение ОД</p>
         </div>
-        <p className="self-center justify-self-end">Поиск</p>
+        <LoanSearchInput/>
       </div>
 
       <div className="flex flex-row h-[100%]">
@@ -40,8 +40,8 @@ export function Root() {
           <div className=" h-[90%] w-[100%]"> {/* grid */}
             <LoanGrid/>
           </div>
-          <div className=" h-[10%] w-[100%] bg-slate-400">
-            <p>Pagination</p>
+          <div className=" h-[10%] w-[100%]">{/* pagination */}
+            <Pagination/>
           </div>
 
         </div>

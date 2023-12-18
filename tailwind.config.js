@@ -25,7 +25,9 @@ export default {
         'bg-white': '#F6F8FA',
         'lines-white':'#ECEDEE',
         'red': '#FA506F',
-        'icon-bg': '#8DC8E8',        
+        'icon-bg': '#8DC8E8',
+        'green': '#4ED09A',  
+              
       }
     },
   },

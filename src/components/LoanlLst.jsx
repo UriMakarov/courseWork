@@ -1,9 +1,9 @@
-import { useData } from "../hooks/useData";
+import { useData } from "../hooks/useData.js";
 
 const LoanList = () => {
-  const {data} = useData(); 
+  const {data} = useData(10); 
   return (
-    <>
+    <div className="">
       <p>Title</p>
       <table>
         <thead>
@@ -15,9 +15,6 @@ const LoanList = () => {
             <th>Дата завершения</th>
             <th>Номер</th>
             <th>Сумма</th>
-            <th>Статус</th>
-            <th>IP-адрес</th>
-            <th>Порт</th>
           </tr>
         </thead>
         <tbody>
@@ -30,14 +27,11 @@ const LoanList = () => {
               <td>{row.end}</td>
               <td>{row.number}</td>
               <td>{row.amount}</td>
-              <td>{row.status}</td>
-              <td>{row.ip}</td>
-              <td>{row.port}</td>
             </tr>
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 
