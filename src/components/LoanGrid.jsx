@@ -10,21 +10,15 @@ export const LoanGrid = () => {
   return (
     <>
       <div className="flex justify-between items-center">
-        {" "}
         {/* grid title + tabs */}
         <p className="font-roboto text-[20px] text-text mt-[29px]">
-          Расчет графика кредита с равномерным распределением ОД
-        </p>
+          Расчет графика кредита с равномерным распределением ОД </p>
         <div className="mr-6 mt-6">
-          <LoanTabs />{" "}
+          <LoanTabs />
         </div>
       </div>
-      <div
-        className="flex flex-row  items-center bg-bg-white h-12 mt-[18px] 
-          mr-[24px] rounded-lg font-roboto text-text font-medium text-[14px]"
-      >
-        {" "}
-        {/* grid header */}
+      <div  className="flex flex-row items-center bg-bg-white h-12 mt-[18px] 
+          mr-[24px] rounded-lg font-roboto text-text font-medium text-[14px]">{/* grid header */}
         <div className="flex flex-row items-center w-[29%]">
           <CheckBox pressed={false} />
           <p>Дата</p>
@@ -48,8 +42,7 @@ export const LoanGrid = () => {
           <div
             key={index}
             className="flex flex-row  items-center bg-white h-12  
-          mr-[24px] rounded-lg font-roboto text-text font-medium text-[14px]"
-          >
+          mr-[24px] rounded-lg font-roboto text-text text-[14px]">
             <div className="flex flex-row items-center w-[29%]">
               <CheckBox pressed={false} />
               <p>{row.date}</p>

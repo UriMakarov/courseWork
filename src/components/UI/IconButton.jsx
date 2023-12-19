@@ -1,5 +1,3 @@
-
-
 import PropTypes from 'prop-types';
 
 export function IconButton({ img, open, onClick, num = 0, alt }) {
@@ -11,11 +9,9 @@ export function IconButton({ img, open, onClick, num = 0, alt }) {
                     <div className='relative bg-red w-[16px] h-[16px] rounded-[8px] top-[-38px] left-[22px] flex justify-center'> {/* Circle */}
                         <p className='text-white text-[10px] font-bold font-roboto'>{num}</p>
                     </div>
-
                 )}
             </div>
         </>
-
     );
 }
 IconButton.propTypes = {
